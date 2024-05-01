@@ -3,7 +3,7 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build:
@@ -12,10 +12,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      - name: Build application
-        run: |
-          # Commandes pour compiler ou interpréter le code de votre application
-          # Exemple: npm install ou mvn compile
 
   test:
     name: Test
@@ -24,14 +20,23 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      - name: Install dependencies
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '17'
+          distribution: 'adopt'
+      - name: Install JUnit
         run: |
-          # Commandes pour installer les dépendances nécessaires aux tests
-          # Exemple: npm install --only=dev
-      - name: Run automated tests
+          wget -O junit.jar https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/1.8.2/junit-platform-console-standalone-1.8.2.jar
+      - name: Compile code
         run: |
-          # Commandes pour exécuter des tests automatisés
-          # Exemple: npm test ou pytest
+          # Commande pour compiler le code si nécessaire
+          # Exemple: javac src/*.java
+      - name: Run unit tests
+        run: |
+          # Commande pour exécuter les tests unitaires JUnit
+          # Assurez-vous de spécifier le chemin correct vers votre fichier JAR JUnit
+          java -jar junit.jar --class-path src/test/java --scan-class-path
 
   deployment:
     name: Deployment
