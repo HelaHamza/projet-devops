@@ -1,4 +1,4 @@
-package junit.monprojet;
+package monprojet;
 
 public class UniteDistincteException extends Exception {
 	public UniteDistincteException (String message) {

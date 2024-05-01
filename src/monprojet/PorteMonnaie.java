@@ -1,4 +1,4 @@
-package junit.monprojet;
+package monprojet;
 
 import java.util.HashMap;
 
@@ -18,7 +18,6 @@ public void ajouteSomme(SommeArgent sa) {
     int quantite = sa.getQuantite();
 
     if (contenu.containsKey(unite)) {
-        // Si l'unité existe déjà dans le porte-monnaie, ajouter la nouvelle somme à l'existant
         quantite += contenu.get(unite);
     }
 

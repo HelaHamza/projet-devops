@@ -1,10 +1,10 @@
-package junit.monprojet.test;
+package test;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import junit.monprojet.SommeArgent;
-import junit.monprojet.UniteDistincteException;
+import monprojet.SommeArgent;
+import monprojet.UniteDistincteException;
 
 public class Testprojet {
     
