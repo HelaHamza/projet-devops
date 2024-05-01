@@ -1,4 +1,4 @@
-package monprojet;
+package main.java.resources;
 
 import java.util.HashMap;
 

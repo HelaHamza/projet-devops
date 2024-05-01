@@ -1,10 +1,12 @@
 package test.java;
 import org.junit.jupiter.api.Test;
+
+import main.java.resources.SommeArgent;
+import main.java.resources.UniteDistincteException;
+
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import monprojet.SommeArgent;
-import monprojet.UniteDistincteException;
 
 public class Testprojet {
     

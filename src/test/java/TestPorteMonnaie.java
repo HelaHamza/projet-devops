@@ -1,8 +1,10 @@
 package test.java;
 
 import org.junit.jupiter.api.Test;
-import monprojet.PorteMonnaie;
-import monprojet.SommeArgent;
+
+import main.java.resources.PorteMonnaie;
+import main.java.resources.SommeArgent;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TestPorteMonnaie {

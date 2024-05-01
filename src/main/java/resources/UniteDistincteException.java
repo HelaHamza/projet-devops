@@ -1,4 +1,4 @@
-package monprojet;
+package main.java.resources;
 
 public class UniteDistincteException extends Exception {
 	public UniteDistincteException (String message) {
