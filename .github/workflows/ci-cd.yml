@@ -24,6 +24,10 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '17'
+          distribution: 'adopt'
+      - name: Install JUnit
+        run: |
+          wget -O junit.jar https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/1.8.2/junit-platform-console-standalone-1.8.2.jar
       - name: Compile code
         run: |
           # Commande pour compiler le code si nécessaire
@@ -32,8 +36,8 @@ jobs:
         run: |
           # Commande pour exécuter les tests unitaires JUnit
           # Assurez-vous de spécifier le chemin correct vers votre fichier JAR JUnit
-          java -cp .:/path/to/junit.jar:/path/to/your/classes org.junit.runner.JUnitCore com.example.YourTestClass
-          
+          java -jar junit.jar --class-path /path/to/your/classes --scan-class-path
+
   deployment:
     name: Deployment
     runs-on: ubuntu-latest
