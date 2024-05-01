@@ -12,10 +12,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      - name: Build application
-        run: |
-          # Commandes pour compiler ou interpréter le code de votre application
-          # Exemple: npm install ou mvn compile
 
   test:
     name: Test
@@ -32,13 +28,16 @@ jobs:
           server-id: github
           server-username: ${{ github.actor }}
           server-password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Install Maven
+      - name: Compile code
         run: |
-          sudo apt-get install -y maven
+          # Commande pour compiler le code si nécessaire
+          # Exemple: javac src/*.java
       - name: Run unit tests
         run: |
-          mvn test
-
+          # Commande pour exécuter les tests unitaires JUnit
+          # Assurez-vous de spécifier le chemin correct vers vos classes de test
+          java -cp .:/path/to/junit.jar:/path/to/your/classes org.junit.runner.JUnitCore com.example.YourTestClass
+          
   deployment:
     name: Deployment
     runs-on: ubuntu-latest
