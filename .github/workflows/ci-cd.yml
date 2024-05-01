@@ -24,14 +24,16 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      - name: Install dependencies
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'  # Choisissez la version de Java appropriée
+      - name: Install Maven
         run: |
-          # Commandes pour installer les dépendances nécessaires aux tests
-          # Exemple: npm install --only=dev
-      - name: Run automated tests
+          sudo apt-get install -y maven
+      - name: Run unit tests
         run: |
-          # Commandes pour exécuter des tests automatisés
-          # Exemple: npm test ou pytest
+          mvn test
 
   deployment:
     name: Deployment
