@@ -28,10 +28,12 @@ public class Testprojet {
         assertThrows(UniteDistincteException.class, () -> {
             m12CHF.add(m14USD);
         });
-    }
+     }
+    
 
     @Test
     public void testEquals() {
+        assertNotNull(m12CHF); // Vérifier que m12CHF n'est pas null
         assertFalse(m12CHF.equals(null));
         assertEquals(m12CHF, m12CHF);
         assertEquals(m12CHF, new SommeArgent(12, "CHF"));
