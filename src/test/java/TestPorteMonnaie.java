@@ -3,6 +3,7 @@ package test.java;
 import org.junit.jupiter.api.Test;
 
 import main.java.resources.SommeArgent;
+import main.java.resources.UniteDistincteException;
 import main.java.resources.PorteMonnaie;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -56,5 +57,17 @@ public class TestPorteMonnaie {
         // On s'attend à ce que porteMonnaie1 et porteMonnaie2 soient différents
         assertFalse(porteMonnaie1.equals(porteMonnaie2));
     }
+    @Test
+    public void testAddition() {
+        SommeArgent somme1 = new SommeArgent(10, "EUR");
+        SommeArgent somme2 = new SommeArgent(20, "EUR");
+        
+        try {
+            SommeArgent resultat = somme1.add(somme2);
+            assertEquals(30, resultat.getQuantite());
+            assertEquals("EUR", resultat.getUnite());
+        } catch (UniteDistincteException e) {
+            fail("Une exception d'unité distincte ne devrait pas être lancée ici");
+        }
     
-}
+}}
