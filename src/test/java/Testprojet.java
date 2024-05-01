@@ -23,14 +23,17 @@ public class Testprojet {
         m14USD = new SommeArgent(14, "USD");
     }
 
-  /*  @Test
+    @Test
     public void testAdditionUniteDistincteException() {
+        // Créer deux sommes d'argent avec des unités différentes
+        SommeArgent m12CHF = new SommeArgent(12, "CHF");
+        SommeArgent m14USD = new SommeArgent(14, "USD");
+
+        // On s'attend à ce qu'une UniteDistincteException soit lancée lors de l'addition
         assertThrows(UniteDistincteException.class, () -> {
             m12CHF.add(m14USD);
         });
-     }
-    
-*/
+    }
     @Test
     public void testEquals() {
         // Création de deux porte-monnaie avec le même contenu
