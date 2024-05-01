@@ -21,7 +21,7 @@ jobs:
         distribution: 'adopt'
 
     - name: Build with Maven
-      run: mvn clean install -B
+      run: mvn clean install -DskipTests=true  # Skip tests during build
 
   test:
     name: Test
@@ -38,6 +38,9 @@ jobs:
       with:
         java-version: '17'
         distribution: 'adopt'
+
+    - name: Install dependencies
+      run: mvn dependency:resolve
 
     - name: Run Tests
       run: mvn test
