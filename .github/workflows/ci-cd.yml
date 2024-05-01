@@ -9,43 +9,50 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up JDK
+      uses: actions/setup-java@v2
+      with:
+        java-version: '17'
+        distribution: 'adopt'
+
+    - name: Build with Maven
+      run: mvn clean install -B
 
   test:
     name: Test
     runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-      - name: Set up JDK
-        uses: actions/setup-java@v2
-        with:
-          java-version: '17'
-          distribution: 'adopt'
-      - name: Install JUnit
-        run: |
-          wget -O junit.jar https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/1.8.2/junit-platform-console-standalone-1.8.2.jar
-      - name: Compile code
-        run: |
-          # Commande pour compiler le code si nécessaire
-          # Exemple: javac src/*.java
-      - name: Run unit tests
-        run: |
-          # Commande pour exécuter les tests unitaires JUnit
-          # Assurez-vous de spécifier le chemin correct vers votre fichier JAR JUnit
-          java -jar junit.jar --class-path src/test/java --scan-class-path
 
-  deployment:
+    needs: build
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up JDK
+      uses: actions/setup-java@v2
+      with:
+        java-version: '17'
+        distribution: 'adopt'
+
+    - name: Run Tests
+      run: mvn test
+
+  deploy:
     name: Deployment
     runs-on: ubuntu-latest
+
     needs: test
+
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-      - name: Deploy to production
-        run: |
-          # Commandes pour déployer votre application dans un environnement de production
-          # Exemple: Utiliser des outils comme Docker, Ansible, ou simplement copier les fichiers sur un serveur
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Deploy to production
+      run: |
+        # Commandes pour déployer votre application dans un environnement de production
+        # Exemple: Utiliser des outils comme Docker, Ansible, ou simplement copier les fichiers sur un serveur
