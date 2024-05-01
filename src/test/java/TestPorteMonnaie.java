@@ -41,4 +41,20 @@ public class TestPorteMonnaie {
         // On s'attend à ce que porteMonnaie1 et porteMonnaie2 soient différents
         assertFalse(porteMonnaie1.equals(porteMonnaie2));
     }
+    @Test
+    public void testEqualsInstance() {
+        // Créer deux instances de PorteMonnaie
+        PorteMonnaie porteMonnaie1 = new PorteMonnaie();
+        PorteMonnaie porteMonnaie2 = new PorteMonnaie();
+
+        // Ajouter 5 euros à porteMonnaie1
+        porteMonnaie1.ajouteSomme(new SommeArgent(5, "EUR"));
+
+        // Ajouter 7 dollars à porteMonnaie2
+        porteMonnaie2.ajouteSomme(new SommeArgent(7, "USD"));
+
+        // On s'attend à ce que porteMonnaie1 et porteMonnaie2 soient différents
+        assertFalse(porteMonnaie1.equals(porteMonnaie2));
+    }
+    
 }
