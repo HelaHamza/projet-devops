@@ -1,6 +1,4 @@
 package main.java.resources;
-import org.junit.Test;
-import static org.junit.Assert.*;
 
 public class SommeArgent {
 	private int quantite;
