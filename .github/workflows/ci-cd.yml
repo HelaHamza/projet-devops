@@ -1,0 +1,46 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Build application
+        run: |
+          # Commandes pour compiler ou interpréter le code de votre application
+          # Exemple: npm install ou mvn compile
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: |
+          # Commandes pour installer les dépendances nécessaires aux tests
+          # Exemple: npm install --only=dev
+      - name: Run automated tests
+        run: |
+          # Commandes pour exécuter des tests automatisés
+          # Exemple: npm test ou pytest
+
+  deployment:
+    name: Deployment
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Deploy to production
+        run: |
+          # Commandes pour déployer votre application dans un environnement de production
+          # Exemple: Utiliser des outils comme Docker, Ansible, ou simplement copier les fichiers sur un serveur
