@@ -59,7 +59,7 @@ public class TestPorteMonnaie {
     }
     @Test
     public void testAddition() {
-        //SommeArgent somme1 = new SommeArgent(10, "EUR");
+        SommeArgent somme1 = new SommeArgent(10, "EUR");
         SommeArgent somme2 = new SommeArgent(20, "EUR");
         
         try {
