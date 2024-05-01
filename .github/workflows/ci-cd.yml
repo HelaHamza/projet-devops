@@ -23,11 +23,7 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v2
         with:
-          java-version: '17'  # Choisir la version de Java appropriée
-          distribution: 'adopt'  # Spécifier la distribution (par exemple, adopt, zulu)
-          server-id: github
-          server-username: ${{ github.actor }}
-          server-password: ${{ secrets.GITHUB_TOKEN }}
+          java-version: '17'
       - name: Compile code
         run: |
           # Commande pour compiler le code si nécessaire
@@ -35,7 +31,7 @@ jobs:
       - name: Run unit tests
         run: |
           # Commande pour exécuter les tests unitaires JUnit
-          # Assurez-vous de spécifier le chemin correct vers vos classes de test
+          # Assurez-vous de spécifier le chemin correct vers votre fichier JAR JUnit
           java -cp .:/path/to/junit.jar:/path/to/your/classes org.junit.runner.JUnitCore com.example.YourTestClass
           
   deployment:
