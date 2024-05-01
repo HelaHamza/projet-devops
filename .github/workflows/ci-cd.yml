@@ -36,7 +36,7 @@ jobs:
         run: |
           # Commande pour exécuter les tests unitaires JUnit
           # Assurez-vous de spécifier le chemin correct vers votre fichier JAR JUnit
-          java -jar junit.jar --class-path /path/to/your/classes --scan-class-path
+          java -jar junit.jar --class-path src/test/java --scan-class-path
 
   deployment:
     name: Deployment
