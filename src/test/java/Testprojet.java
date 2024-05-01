@@ -1,4 +1,5 @@
 package test.java;
+
 import org.junit.jupiter.api.Test;
 
 import main.java.resources.SommeArgent;
@@ -21,8 +22,6 @@ public class Testprojet {
 		m12CHF = new SommeArgent(12, "CHF");
         m14CHF = new SommeArgent(14, "CHF");
         m14USD = new SommeArgent(14, "USD");
-      //  passage++;
-        //System.out.println(passage + "ime passage avant exécution d'une méthode de test");
     }
 	//@AfterEach
     //public void configAprés() {
@@ -38,17 +37,13 @@ public class Testprojet {
         } catch (UniteDistincteException e) {
             fail("L'addition a échoué avec l'exception: " + e.getMessage());
         }
-  
-     }
+    }
     
     @Test
     public void testAdditionUniteDistincteException() {
-            SommeArgent m12CHF = new SommeArgent(12, "CHF");
-            SommeArgent m14USD = new SommeArgent(14, "USD");
-
-            assertThrows(UniteDistincteException.class, () -> {
-                m12CHF.add(m14USD);
-            });
+        assertThrows(UniteDistincteException.class, () -> {
+            m12CHF.add(m14USD);
+        });
      }
     
     @Test
