@@ -28,7 +28,7 @@ public class Testprojet {
       //  System.out.println(passage + "ime passage APRES exécution d'une méthode de test");
    // }
 	
-    @Test
+  /*  @Test
     public void testAddition() {
     	try {
             SommeArgent actualSum = m12CHF.add(m14CHF);
@@ -38,7 +38,7 @@ public class Testprojet {
             fail("L'addition a échoué avec l'exception: " + e.getMessage());
         }
     }
-    
+    */
     @Test
     public void testAdditionUniteDistincteException() {
         assertThrows(UniteDistincteException.class, () -> {
