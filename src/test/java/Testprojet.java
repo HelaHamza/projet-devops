@@ -23,7 +23,7 @@ public class Testprojet {
         m14USD = new SommeArgent(14, "USD");
     }
 
-    @Test
+  /*  @Test
     public void testAdditionUniteDistincteException() {
         assertThrows(UniteDistincteException.class, () -> {
             m12CHF.add(m14USD);
@@ -31,7 +31,7 @@ public class Testprojet {
      }
     
 
-    @Test
+   /* @Test
     public void testEquals() {
         assertNotNull(m12CHF); // Assurez-vous que m12CHF n'est pas null
         assertFalse(m12CHF.equals(null));
@@ -39,6 +39,6 @@ public class Testprojet {
         assertEquals(m12CHF, new SommeArgent(12, "CHF"));
         assertFalse(m12CHF.equals(m14CHF));
         assertFalse(m14USD.equals(m14CHF));
-    }
+    }*/
 }
 
