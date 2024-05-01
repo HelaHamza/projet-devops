@@ -27,7 +27,7 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v2
         with:
-          java-version: '11'  # Choisissez la version de Java appropriée
+          java-version: '17'  # Choisissez la version de Java appropriée
       - name: Install Maven
         run: |
           sudo apt-get install -y maven
