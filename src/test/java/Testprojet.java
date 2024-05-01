@@ -30,15 +30,30 @@ public class Testprojet {
         });
      }
     
-
-   /* @Test
+*/
+    @Test
     public void testEquals() {
-        assertNotNull(m12CHF); // Assurez-vous que m12CHF n'est pas null
-        assertFalse(m12CHF.equals(null));
-        assertEquals(m12CHF, m12CHF);
-        assertEquals(m12CHF, new SommeArgent(12, "CHF"));
-        assertFalse(m12CHF.equals(m14CHF));
-        assertFalse(m14USD.equals(m14CHF));
-    }*/
+        // Création de deux porte-monnaie avec le même contenu
+        PorteMonnaie porteMonnaie1 = new PorteMonnaie();
+        PorteMonnaie porteMonnaie2 = new PorteMonnaie();
+        porteMonnaie1.ajouteSomme(new SommeArgent(10, "EUR"));
+        porteMonnaie1.ajouteSomme(new SommeArgent(20, "USD"));
+        porteMonnaie2.ajouteSomme(new SommeArgent(10, "EUR"));
+        porteMonnaie2.ajouteSomme(new SommeArgent(20, "USD"));
+
+        // On s'attend à ce que les deux porte-monnaie soient égaux
+        assertTrue(porteMonnaie1.equals(porteMonnaie2));
+
+        // Ajouter une somme supplémentaire à porteMonnaie1
+        porteMonnaie1.ajouteSomme(new SommeArgent(5, "EUR"));
+
+        // On s'attend à ce que les deux porte-monnaie soient maintenant différents
+        assertFalse(porteMonnaie1.equals(porteMonnaie2));
+    }
+    
+    
+    
+    
+    
 }
 
